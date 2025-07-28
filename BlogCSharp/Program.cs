@@ -28,9 +28,10 @@ namespace BlogCSharp {
         {
             var repository = new UserRepository(connection);
             var users = repository.Get();
+            repository.Delete(1);
 
             foreach (var user in users)
-                Console.WriteLine(user.Name);
+                repository.Delete(user);
         } 
         public static void ReadRoles(SqlConnection connection)
         {
