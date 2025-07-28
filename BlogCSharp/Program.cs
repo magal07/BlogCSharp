@@ -26,12 +26,12 @@ namespace BlogCSharp {
 
         public static void ReadUsers(SqlConnection connection)
         {
-            var repository = new UserRepository(connection);
+            var repository = new Repository<User>(connection);
             var users = repository.Get();
-            repository.Delete(1);
+            repository.Get();
 
             foreach (var user in users)
-                repository.Delete(user);
+                Console.WriteLine(user.Name);
         } 
         public static void ReadRoles(SqlConnection connection)
         {
